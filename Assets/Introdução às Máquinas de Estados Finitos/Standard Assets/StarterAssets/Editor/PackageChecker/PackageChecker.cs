@@ -37,11 +37,13 @@ namespace StarterAssets
                     SearchOption.AllDirectories);
 
                 // if no PackageImportList.txt exists
-                if (requiredPackagesListFile.Length == 0)
-                {
-                    Debug.LogError(
-                        "[Auto Package] : Couldn't find the packages list. Be sure there is a file called PackageImportList in your project");
-                }
+                
+if (requiredPackagesListFile.Length == 0)
+{
+    Debug.LogWarning(
+        "PackageImportList.txt não encontrado. A verificação dos pacotes foi ignorada.");
+}
+
                 else
                 {
                     packagesToAdd = new List<PackageEntry>();
